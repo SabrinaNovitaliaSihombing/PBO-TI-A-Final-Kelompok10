@@ -81,11 +81,11 @@ public class LibraryRepositorylmpl implements LibraryRepository{
     }
 
     @Override
-    public Boolean edit(final Library todoList) {
-        if (isSelectedLibraryNotValid(todoList.getId())) {
+    public Boolean edit(final Library library) {
+        if (isSelectedLibraryNotValid(library.getId())) {
             return false;
         }
-        libraries[todoList.getId() - 1] = todoList;
+        libraries[library.getId() - 1] = library;
         return true;
     }
 }
