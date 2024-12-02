@@ -2,12 +2,12 @@ package repositories;
 
 import entities.Library;
 
-public class LibraryRepository {
+public interface LibraryRepository {
     Library[] getAll();
 
     void add(Library library);
 
-    Boolean remove(Integer Id);
+    Boolean remove(Integer id);
 
     Boolean edit(Library library);
 }

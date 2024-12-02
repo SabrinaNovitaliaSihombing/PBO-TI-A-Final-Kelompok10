@@ -2,22 +2,20 @@ package repositories;
 
 import entities.Library;
 
-public class LibraryRepositorylmpl implements LibraryRepository{
+public class LibraryRepositorylmpl implements LibraryRepository {
     public static Library[] libraries = new Library[2];
 
     @Override
-    public Library[] getAll() {
-        return libraries;
-    }
+    public Library[] getAll() {return libraries;}
 
     @Override
     public void add(final Library library) {
 
         resizeArrayIfFull();
 
-        for (int i = 0; i < libraries.length; i++) {
-            if (libraries[i] == null) {
-                libraries[i] = library;
+        for (int I = 0; I < libraries.length; I++) {
+            if (libraries[I] == null) {
+                libraries[I] = library;
                 break;
             }
         }
@@ -34,15 +32,16 @@ public class LibraryRepositorylmpl implements LibraryRepository{
 
     private void resizeArrayToTwoTimesBigger() {
         Library[] temp = libraries;
-        libraries = new Library[][libraries.length * 2];
-        for (int i = 0; i < temp.length; i++) {
-            libraries[i] = temp[i];
+        libraries = new Library[libraries.length * 2];
+
+        for (int I = 0; I < temp.length; I++) {
+            libraries[I] = temp[I];
         }
     }
 
     private Boolean isArrayFull(Boolean isFull) {
-        for (int i = 0; i < libraries.length; i++) {
-            if (libraries[i] == null) {
+        for (int I = 0; I < libraries.length; I++) {
+            if (libraries[I] == null) {
                 isFull = false;
                 break;
             }
@@ -56,16 +55,18 @@ public class LibraryRepositorylmpl implements LibraryRepository{
             return false;
         }
 
-        for (int i = number - 1; i < libraries.length; i++) {
-            if (i == (libraries.length - 1)) {
-                libraries[i] = null;
+        for (int I = number - 1; I < libraries.length; I++) {
+
+            if (I == (libraries.length - 1)) {
+                libraries[I] = null;
             } else {
-                libraries[i] = libraries[i + 1];
+                libraries[I] = libraries[I + 1];
             }
         }
         return true;
     }
-    private static boolean isSelectedLibraryNotValid(final Integer number) {
+
+    private static Boolean isSelectedLibraryNotValid(final Integer number) {
         if (number <= 0) {
             return true;
         }
@@ -89,5 +90,3 @@ public class LibraryRepositorylmpl implements LibraryRepository{
         return true;
     }
 }
-
-

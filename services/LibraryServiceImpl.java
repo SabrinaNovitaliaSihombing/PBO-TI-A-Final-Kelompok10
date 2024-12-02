@@ -1,7 +1,6 @@
-package service;
+package services;
 
 import entities.Library;
-import repositories.LibraryRepository;
 
 public class LibraryServiceImpl implements LibraryService {
     private LibraryRepository libraryRepository;
