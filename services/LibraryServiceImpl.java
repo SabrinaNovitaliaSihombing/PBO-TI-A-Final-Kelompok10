@@ -1,11 +1,13 @@
 package services;
 
 import entities.Library;
+import repositories.LibraryRepository;
 
-public class LibraryServiceImpl implements LibraryService {
+
+public class LibraryServicelmpl implements LibraryService {
     private LibraryRepository libraryRepository;
 
-    public LibraryServiceImpl(LibraryRepository libraryRepository) {
+    public LibraryServicelmpl(LibraryRepository libraryRepository) {
         this.libraryRepository = libraryRepository;
     }
 
