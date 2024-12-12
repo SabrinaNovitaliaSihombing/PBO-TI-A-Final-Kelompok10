@@ -1,4 +1,4 @@
-package views;
+package libraryapp.views;
 
 /**
  * Antarmuka untuk tampilan aplikasi.

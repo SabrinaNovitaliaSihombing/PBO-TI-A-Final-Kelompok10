@@ -1,7 +1,7 @@
-package services;
+package libraryapp.services;
 
-import entities.Library;
-import repositories.LibraryRepository;
+import libraryapp.entities.Library;
+import libraryapp.repositories.LibraryRepository;
 
 
 public class LibraryServicelmpl implements LibraryService {

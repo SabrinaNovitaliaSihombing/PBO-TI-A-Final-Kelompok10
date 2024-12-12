@@ -1,6 +1,6 @@
-package repositories;
+package libraryapp.repositories;
 
-import entities.Library;
+import libraryapp.entities.Library;
 
 public interface LibraryRepository {
     Library[] getAll();

@@ -1,4 +1,4 @@
-package entities;
+package libraryapp.entities;
 
 public class Library {
     private String library;

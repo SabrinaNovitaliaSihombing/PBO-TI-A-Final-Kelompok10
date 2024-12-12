@@ -1,15 +1,8 @@
-package repositories;
+package libraryapp.repositories;
 
-import config.Database;
-import entities.Library;
+import libraryapp.entities.Library;
 
 public class LibraryRepositorylmpl implements LibraryRepository {
-    private Database database;
-
-    // Konstruktor yang menerima Database sebagai argumen
-    public LibraryRepositorylmpl(Database database) {
-        this.database = database;
-    }
 
     public static Library[] libraries = new Library[2];
 

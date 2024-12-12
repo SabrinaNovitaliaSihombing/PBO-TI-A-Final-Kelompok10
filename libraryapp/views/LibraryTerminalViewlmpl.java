@@ -1,10 +1,10 @@
-package views;
+package libraryapp.views;
 
-import entities.Library;
+import libraryapp.entities.Library;
 
 import java.util.Scanner;
 
-import services.LibraryService;
+import libraryapp.services.LibraryService;
 
 public class LibraryTerminalViewlmpl implements LibraryView {
     public static Scanner scanner = new Scanner(System.in);

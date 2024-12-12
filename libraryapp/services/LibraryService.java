@@ -1,6 +1,6 @@
-package services;
+package libraryapp.services;
 
-import entities.Library;
+import libraryapp.entities.Library;
 
 public interface LibraryService {
     Library[] getLibrary();
