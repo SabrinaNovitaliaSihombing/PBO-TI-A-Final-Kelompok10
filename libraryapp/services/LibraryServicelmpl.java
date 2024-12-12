@@ -2,11 +2,12 @@ package libraryapp.services;
 
 import libraryapp.entities.Library;
 import libraryapp.repositories.LibraryRepository;
-
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+@Component
 public class LibraryServicelmpl implements LibraryService {
     private LibraryRepository libraryRepository;
-
+    @Autowired
     public LibraryServicelmpl(LibraryRepository libraryRepository) {
         this.libraryRepository = libraryRepository;
     }

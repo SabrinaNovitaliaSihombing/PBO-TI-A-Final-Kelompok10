@@ -5,11 +5,14 @@ import libraryapp.entities.Library;
 import java.util.Scanner;
 
 import libraryapp.services.LibraryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LibraryTerminalViewlmpl implements LibraryView {
     public static Scanner scanner = new Scanner(System.in);
     private final LibraryService libraryService;
-
+    @Autowired
     public LibraryTerminalViewlmpl(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
