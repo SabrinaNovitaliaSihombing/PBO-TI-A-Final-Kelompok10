@@ -23,13 +23,13 @@ public class LibraryTerminalViewlmpl implements LibraryView {
     public void showMainMenu() {
         boolean isRunning = true;
         while (isRunning) {
-            showLibrary();
             System.out.println("Welcome to Library App!");
             System.out.println("MENU : ");
             System.out.println("1. Tambah");
             System.out.println("2. Hapus");
             System.out.println("3. Edit");
-            System.out.println("4. Keluar");
+            System.out.println("4. Daftar Buku");
+            System.out.println("5. Keluar");
             String selectedMenu = input("Pilih");
 
             switch (selectedMenu) {
@@ -43,6 +43,9 @@ public class LibraryTerminalViewlmpl implements LibraryView {
                     showMenuEditLibrary();
                     break;
                 case "4":
+                    showLibrary();
+                    break;
+                case "5":
                     isRunning = false;
                     break;
                 default:
@@ -96,7 +99,7 @@ public class LibraryTerminalViewlmpl implements LibraryView {
         for (var i = 0; i < library.length; i++) {
             var buku = library[i];
             if (buku != null) {
-                System.out.println((i + 1) + ". " + buku.getId());
+                System.out.println((i + 1) + ". " + buku.getLibrary());
             }
         }
     }
