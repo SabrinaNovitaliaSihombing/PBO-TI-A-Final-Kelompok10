@@ -1,10 +1,9 @@
 package views;
 
 import entities.Library;
-import entities.Library;
+
 import java.util.Scanner;
 
-import services.LibraryService;
 import services.LibraryService;
 
 public class LibraryTerminalViewlmpl implements LibraryView {

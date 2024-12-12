@@ -1,31 +1,37 @@
 package repositories;
 
+import config.Database;
 import entities.Library;
 
 public class LibraryRepositorylmpl implements LibraryRepository {
+    private Database database;
+
+    // Konstruktor yang menerima Database sebagai argumen
+    public LibraryRepositorylmpl(Database database) {
+        this.database = database;
+    }
+
     public static Library[] libraries = new Library[2];
 
     @Override
-    public Library[] getAll() {return libraries;}
+    public Library[] getAll() {
+        return libraries;
+    }
 
     @Override
     public void add(final Library library) {
-
         resizeArrayIfFull();
 
-        for (int I = 0; I < libraries.length; I++) {
-            if (libraries[I] == null) {
-                libraries[I] = library;
+        for (int i = 0; i < libraries.length; i++) {
+            if (libraries[i] == null) {
+                libraries[i] = library;
                 break;
             }
         }
     }
 
     private void resizeArrayIfFull() {
-        Boolean isFull = true;
-        isFull = isArrayFull(isFull);
-
-        if (isFull) {
+        if (isArrayFull()) {
             resizeArrayToTwoTimesBigger();
         }
     }
@@ -33,20 +39,16 @@ public class LibraryRepositorylmpl implements LibraryRepository {
     private void resizeArrayToTwoTimesBigger() {
         Library[] temp = libraries;
         libraries = new Library[libraries.length * 2];
-
-        for (int I = 0; I < temp.length; I++) {
-            libraries[I] = temp[I];
-        }
+        System.arraycopy(temp, 0, libraries, 0, temp.length);
     }
 
-    private Boolean isArrayFull(Boolean isFull) {
-        for (int I = 0; I < libraries.length; I++) {
-            if (libraries[I] == null) {
-                isFull = false;
-                break;
+    private boolean isArrayFull() {
+        for (Library library : libraries) {
+            if (library == null) {
+                return false;
             }
         }
-        return isFull;
+        return true;
     }
 
     @Override
@@ -55,27 +57,16 @@ public class LibraryRepositorylmpl implements LibraryRepository {
             return false;
         }
 
-        for (int I = number - 1; I < libraries.length; I++) {
-
-            if (I == (libraries.length - 1)) {
-                libraries[I] = null;
-            } else {
-                libraries[I] = libraries[I + 1];
-            }
+        for (int i = number - 1; i < libraries.length - 1; i++) {
+            libraries[i] = libraries[i + 1];
         }
+
+        libraries[libraries.length - 1] = null;  // Clear the last element
         return true;
     }
 
-    private static Boolean isSelectedLibraryNotValid(final Integer number) {
-        if (number <= 0) {
-            return true;
-        }
-
-        if (number - 1 > libraries.length - 1) {
-            return true;
-        }
-
-        if (libraries[number - 1] == null) {
+    private static boolean isSelectedLibraryNotValid(final Integer number) {
+        if (number <= 0 || number > libraries.length || libraries[number - 1] == null) {
             return true;
         }
         return false;
